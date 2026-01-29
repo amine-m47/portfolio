@@ -1,0 +1,85 @@
+================================================================================
+                         AMINE MAHMOUDY
+                Apprenti Ingénieur Sécurité Systèmes & Réseaux
+================================================================================
+
+CONTACT
+-------
+Téléphone    : 07 68 24 79 13
+Email        : amine.mahmoudy@gmail.com
+Localisation : Agen (47), France
+LinkedIn     : linkedin.com/in/amine-mahmoudy
+GitHub       : github.com/amine-mahmoudy
+Permis       : B
+
+FORMATION
+---------
+BUT Informatique - Parcours DACS
+IUT Paul Sabatier, Toulouse (31) | Septembre 2023 - En cours
+• 2ème année : Mention Bien (2/29)
+• 1ère année : Mention Assez bien (27/141)
+
+Baccalauréat Général - Mention Bien
+Lycée Bernard Palissy, Agen (47) | 2023
+Spécialités : Mathématiques • Numériques et Sciences de l'Informatique (NSI)
+
+EXPÉRIENCE PROFESSIONNELLE
+---------------------------
+Apprenti Ingénieur Sécurité Systèmes & Réseaux
+Fonroche Lighting, Agen (47) | Octobre 2025 - En cours
+• Sécurisation des systèmes et infrastructures réseaux
+• Administration système Linux (Debian, Ubuntu)
+• Gestion des accès utilisateurs et LDAP
+• Mise en place de solutions de sécurité
+
+Développeur Systèmes & Réseaux Informatiques - STAGE
+Vitesco Technologies, Toulouse (31) | Avril - Juin 2025 (3 mois)
+• Gestion des ports et programmation bas niveau en C
+• Sécurité des systèmes informatiques
+• Gestion des sessions utilisateurs et des accès
+• Travail en équipe de 3 personnes
+
+COMPÉTENCES TECHNIQUES
+----------------------
+RÉSEAUX INFORMATIQUES
+• Modèle OSI, TCP/IP, UDP
+• Protocoles réseau, Firewall
+• Routage statique et dynamique (OSPF, BGP)
+• Architecture réseau Cisco Packet Tracer
+• VLAN, STP
+
+SÉCURITÉ SYSTÈMES & INFRASTRUCTURE
+• Linux (Debian, Ubuntu, Kali)
+• SELinux, LDAP, Élévation des privilèges
+• Cryptographie et chiffrement (symétrique/asymétrique)
+• Hachage et code correcteurs
+• Docker, VMware, Proxmox, VirtualBox
+• Supervision et monitoring
+
+LANGAGES & FRAMEWORKS
+• Langages : Python, C, Bash/Shell, Java, PL/SQL, PHP, JavaScript, HTML/CSS
+• Frameworks : Laravel, Vue.js, REST APIs
+• Outils : Git, Méthodologies Agile
+
+COMPÉTENCES TRANSVERSALES
+-------------------------
+• Communication et documentation technique
+• Travail d'équipe et collaboration
+• Qualités d'écoute
+• Capacités rédactionnelles avancées
+• Adaptabilité et gestion des délais
+
+LANGUES
+-------
+Français     : Natif
+Anglais      : C1 (Avancé)
+Espagnol     : B1 (Intermédiaire)
+
+CENTRES D'INTÉRÊT
+-----------------
+🥾 Randonnée
+📚 Littérature
+🌍 Langues étrangères
+💻 Technologies émergentes
+
+================================================================================

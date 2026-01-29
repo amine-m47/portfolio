@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Amine Mahmoudy - Ingénieur Sécurité</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Styles pour la page portfolio */
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-nav {
+            display: none;
+        }
+
+        .portfolio-nav h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            color: #999;
+            font-weight: 600;
+        }
+
+        .portfolio-nav h3:first-child {
+            margin-top: 0;
+        }
+
+        .portfolio-nav ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .portfolio-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-nav a {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: block;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .portfolio-nav a:hover {
+            background: #f0f0f0;
+            color: var(--primary);
+        }
+
+        .portfolio-nav a.active {
+            background: #e3f2fd;
+            color: var(--primary);
+            font-weight: 600;
+            border-left: 3px solid var(--primary);
+            padding-left: 0.3rem;
+        }
+
+        .portfolio-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .portfolio-section {
+            scroll-margin-top: 100px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            margin-top: 3rem;
+            border-bottom: 4px solid transparent;
+            border-image: linear-gradient(90deg, #0066cc, #0088ff, #0066cc) 1;
+            padding-bottom: 1.2rem;
+            scroll-margin-top: 80px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            background: linear-gradient(135deg, #0066cc, #0088ff, #0052a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* Formation */
+        .formation-item {
+            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 50%, #f9f5ff 100%);
+            border: 2px solid transparent;
+            border-left: 6px solid #0066cc;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formation-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.1) 0%, transparent 70%);
+            transition: all 0.6s ease;
+            pointer-events: none;
+        }
+
+        .formation-item:hover {
+            box-shadow: 0 20px 40px rgba(0, 102, 204, 0.25), inset 0 1px 0 rgba(255,255,255,0.6);
+            border-left-color: #0088ff;
+            transform: translateY(-4px) scale(1.01);
+            background: linear-gradient(135deg, #e8f0ff 0%, #ffffff 50%, #f5f0ff 100%);
+        }
+
+        .formation-item:hover::before {
+            top: -25%;
+            right: -25%;
+        }
+
+        .formation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .formation-header h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary);
+            font-size: 1.1rem;
+            flex: 1;
+        }
+
+        .expand-icon {
+            font-size: 1.5rem;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: var(--primary);
+            display: inline-block;
+        }
+
+        .expand-icon.open {
+            transform: rotate(180deg) scale(1.2);
+        }
+
+        .formation-details {
+            color: var(--text-light);
+            line-height: 1.6;
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .formation-details.open {
+            display: block;
+        }
+
+        .formation-details strong {
+            color: var(--primary);
+            display: block;
+            margin-top: 0.8rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .formation-details ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .formation-details li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Expériences */
+        .experience-item {
+            background: linear-gradient(135deg, #e8f4ff 0%, #ffffff 50%, #f0e8ff 100%);
+            border: 2px solid transparent;
+            border-left: 6px solid #0066cc;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.15) 0%, transparent 70%);
+            transition: all 0.6s ease;
+            pointer-events: none;
+        }
+
+        .experience-item:hover {
+            border-left-color: #0088ff;
+            box-shadow: 0 25px 50px rgba(0, 102, 204, 0.3), inset 0 1px 0 rgba(255,255,255,0.8);
+            transform: translateY(-5px) scale(1.02);
+            background: linear-gradient(135deg, #d9ebff 0%, #ffffff 50%, #e8deff 100%);
+        }
+
+        .experience-item:hover::before {
+            top: -25%;
+            right: -25%;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .experience-title-section {
+            flex: 1;
+        }
+
+        .experience-item h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .experience-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .experience-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-top: 0.8rem;
+            display: block;
+        }
+
+        .experience-achievements {
+            margin-top: 0;
+            display: none;
+        }
+
+        .experience-achievements.open {
+            display: block;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .experience-achievements strong {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .experience-achievements ul {
+            margin-left: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .experience-achievements li {
+            margin-bottom: 0.4rem;
+        }
+
+        .competence-link {
+            display: inline-block;
+            background: #fff3e0;
+            color: #f57c00;
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .competence-link:hover {
+            background: #f57c00;
+            color: white;
+        }
+
+        .competence-links-section {
+            display: none;
+        }
+
+        .competence-links-section.open {
+            display: block;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* Compétences */
+        .competence-detail {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .competence-detail:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 102, 204, 0.15);
+        }
+
+        .competence-detail h3 {
+            margin: 0 0 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: space-between;
+        }
+
+        .competence-id {
+            font-size: 0.65rem;
+            background: #f0f0f0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            color: #999;
+            margin-left: auto;
+        }
+
+        .competence-description {
+            color: var(--text-light);
+            margin-bottom: 0;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .competence-details {
+            display: none;
+        }
+
+        .competence-details.open {
+            display: block;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .competence-details strong {
+            color: var(--primary);
+            display: block;
+            margin-top: 0.8rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .competence-details ul {
+            margin-left: 1.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .competence-details li {
+            margin-bottom: 0.3rem;
+        }
+
+        .competence-details p {
+            margin: 0.5rem 0;
+            color: var(--text-light);
+        }
+
+        /* Soft Skills & Loisirs */
+        .softskill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .softskill-card {
+            background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 50%, #fffaf0 100%);
+            border: 2px solid transparent;
+            border-left: 6px solid #0066cc;
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .softskill-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.1) 0%, transparent 70%);
+            transition: all 0.6s ease;
+            pointer-events: none;
+        }
+
+        .softskill-card:hover {
+            border-left-color: #0088ff;
+            box-shadow: 0 20px 40px rgba(0, 102, 204, 0.25), inset 0 1px 0 rgba(255,255,255,0.8);
+            transform: translateY(-4px) scale(1.02);
+            background: linear-gradient(135deg, #e0f2ff 0%, #ffffff 50%, #fff5e8 100%);
+        }
+
+        .softskill-card:hover::before {
+            top: -25%;
+            right: -25%;
+        }
+
+        .softskill-card h4 {
+            margin: 0 0 0.8rem 0;
+            background: linear-gradient(135deg, var(--primary), #0052a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .softskill-card p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-container {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-nav {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+            .portfolio-nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .portfolio-nav h3 {
+                width: 100%;
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .portfolio-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin: 0;
+            }
+
+            .portfolio-nav a {
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="navbar">
+            <div class="navbar-logo"><a href="index.html" style="color: var(--primary); text-decoration: none;">AM</a></div>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="#formation-section">Formation</a></li>
+                <li><a href="#experiences-section">Expériences</a></li>
+                <li><a href="#competences-section">Compétences</a></li>
+                <li><a href="#softskills-section">Soft Skills</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="navbar-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="section" style="background: linear-gradient(135deg, var(--primary) 0%, #0052a3 100%); color: white; padding: 4rem 5% !important;">
+        <div class="container">
+            <h1 style="color: white; margin-bottom: 0.5rem;">Mon Parcours Professionnel</h1>
+            <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; margin: 0;">
+                Formation • Expériences • Compétences • Loisirs
+            </p>
+        </div>
+    </section>
+
+    <!-- Portfolio Container -->
+    <section class="section container">
+        <div class="portfolio-container">
+            <!-- Sommaire Navigation -->
+            <aside class="portfolio-nav" id="portfolio-nav">
+                <h3>Formation</h3>
+                <ul id="nav-formation"></ul>
+                <h3>Expériences</h3>
+                <ul id="nav-experiences"></ul>
+                <h3>Compétences</h3>
+                <ul id="nav-competences"></ul>
+                <h3>Divers</h3>
+                <ul id="nav-divers"></ul>
+            </aside>
+
+            <!-- Contenu Principal -->
+            <main class="portfolio-content">
+
+                <!-- ============================================ -->
+                <!-- SECTION 1 : FORMATION -->
+                <!-- ============================================ -->
+                <section id="formation-section" class="portfolio-section">
+                    <div class="section-header">
+                        <h2>📚 Formation</h2>
+                    </div>
+
+                    <!-- BUT Informatique -->
+                    <div id="form-but" class="formation-item">
+                        <div class="formation-header">
+                            <div>
+                                <h3>BUT Informatique - Parcours DACS</h3>
+                                <div class="formation-meta">
+                                    <span>📅 Septembre 2023 - En cours (2ème année)</span><br>
+                                    <span>🏫 IUT Paul Sabatier • Toulouse (31)</span>
+                                </div>
+                            </div>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="formation-details">
+                            <strong>Parcours :</strong> Déploiement d'Applications Communicantes et Sécurisées (DACS)
+                            <p style="margin: 1rem 0 0.5rem 0;">
+                                Formation complète en informatique axée sur sécurité, systèmes et réseaux. 
+                                Apprentissage de langages multiples (C, Python, Bash, PHP, Java, JavaScript, SQL), 
+                                concepts fondamentaux en réseaux et systèmes, principes de sécurité logiciel et applicatif.
+                            </p>
+                            <strong>Résultats académiques :</strong>
+                            <ul>
+                                <li>2ème année (2024-2025) : <strong>Mention Bien</strong> (2/29 de promotion)</li>
+                                <li>1ère année (2023-2024) : <strong>Mention Assez Bien</strong> (27/141 de promotion)</li>
+                            </ul>
+                            <strong>Points clés :</strong>
+                            <ul>
+                                <li>Fondamentaux en réseaux (modèle OSI, TCP/IP, routage OSPF/BGP, VLANs)</li>
+                                <li>Cryptographie et chiffrement (symétrique, asymétrique, hachage, codes correcteurs)</li>
+                                <li>Programmation sécurisée en C (prévention buffer overflow, gestion bas niveau)</li>
+                                <li>Systèmes Linux (administration, hardening, LDAP, permissions)</li>
+                                <li>Virtualisation et conteneurisation (Docker, VMware, Proxmox, VirtualBox)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Baccalauréat -->
+                    <div id="form-bac" class="formation-item">
+                        <div class="formation-header">
+                            <div>
+                                <h3>Baccalauréat Général</h3>
+                                <div class="formation-meta">
+                                    <span>📅 2023</span><br>
+                                    <span>🏫 Lycée Bernard Palissy • Agen (47)</span>
+                                </div>
+                            </div>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="formation-details">
+                            <strong>Mention :</strong> Bien
+                            <p style="margin: 0.5rem 0;">
+                                <strong>Spécialités :</strong> Mathématiques • Numérique & Sciences de l'Informatique (NSI)
+                            </p>
+                            <p>
+                                Base solide en mathématiques et initiation à l'informatique (Python, algorithmes). 
+                                Fondamentaux en sciences qui soutiennent la compréhension des systèmes informatiques.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================ -->
+                <!-- SECTION 2 : EXPÉRIENCES -->
+                <!-- ============================================ -->
+                <section id="experiences-section" class="portfolio-section">
+                    <div class="section-header">
+                        <h2>💼 Expériences Professionnelles</h2>
+                    </div>
+
+                    <!-- Apprentissage Fonroche -->
+                    <div id="exp-fonroche" class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title-section">
+                                <h3>Apprenti Ingénieur Sécurité Systèmes & Réseaux</h3>
+                                <div class="experience-meta">
+                                    <span>📅 Octobre 2025 - En cours</span>
+                                    <span>🏢 Fonroche Lighting • Agen (47)</span>
+                                    <span>👥 Équipe Cybersécurité & Infrastructure</span>
+                                </div>
+                            </div>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <p class="experience-description">
+                            En apprentissage à temps partiel, je participe activement à la sécurisation du système informatique multi-sites de Fonroche. 
+                            Je contribue à la mise en place de solutions de sécurité avancées et à l'opération du SOC (Security Operations Center).
+                        </p>
+
+                        <div class="experience-achievements">
+                            <strong>Réalisations principales :</strong>
+                            <ul>
+                                <li><strong>Sécurisation et amélioration de la résilience du SI multi-sites</strong> : Audit et hardening d'infrastructures critiques</li>
+                                <li><strong>Segmentation réseau L2/L3</strong> : Design et implémentation de VLAN pour isolation domaines critiques</li>
+                                <li><strong>NAC / Serveur RADIUS 802.1X</strong> : Configuration contrôle d'accès réseau et authentification</li>
+                                <li><strong>EDR Trend Vision One</strong> : Déploiement et gestion sur endpoints en production</li>
+                                <li><strong>Playbooks SOC</strong> : Création et maintenance d'automatisations de réponse aux incidents</li>
+                                <li><strong>Évaluation de la détection (MITRE ATT&CK, purple teaming)</strong> : Testing défenses contre techniques adversaires</li>
+                                <li><strong>Documentation technique</strong> : Rédaction architecture, runbooks et procédures d'opération</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
+                            <strong style="display: block; margin-bottom: 0.8rem; color: var(--primary);">Compétences développées :</strong>
+                            <a href="#comp-segmentation" class="competence-link">Segmentation Réseau</a>
+                            <a href="#comp-nac" class="competence-link">NAC & RADIUS 802.1X</a>
+                            <a href="#comp-edr" class="competence-link">EDR & Threat Detection</a>
+                            <a href="#comp-soc" class="competence-link">SOC & Purple Teaming</a>
+                            <a href="#comp-compliance" class="competence-link">Compliance</a>
+                        </div>
+                    </div>
+
+                    <!-- Stage Vitesco -->
+                    <div id="exp-vitesco" class="experience-item">
+                        <h3>Développeur Systèmes & Réseaux Informatiques - Stage</h3>
+                        <div class="experience-meta">
+                            <span>📅 Avril - Juin 2025 (3 mois)</span>
+                            <span>🏢 Vitesco Technologies • Toulouse (31)</span>
+                            <span>👥 Équipe Infrastructure (3 personnes)</span>
+                        </div>
+                        <p class="experience-description">
+                            Stage en environnement professionnel multinational. Mission : gestion des ports, 
+                            sécurité bas niveau en C, gestion des sessions utilisateurs et des droits d'accès.
+                        </p>
+
+                        <div class="experience-achievements">
+                            <strong>Réalisations :</strong>
+                            <ul>
+                                <li>Gestion des ports et <strong>sécurité bas niveau en C</strong></li>
+                                <li>Gestion des sessions utilisateurs et des droits d'accès</li>
+                                <li>Travail en équipe (3 personnes)</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
+                            <strong style="display: block; margin-bottom: 0.8rem; color: var(--primary);">Compétences développées :</strong>
+                            <a href="#comp-c" class="competence-link">Programmation C</a>
+                            <a href="#comp-linux" class="competence-link">Systèmes Linux</a>
+                        </div>
+                    </div>
+
+                    <!-- Proxy FTP -->
+                    <div id="exp-proxy" class="experience-item">
+                        <h3>Proxy FTP Actif/Passif en C</h3>
+                        <div class="experience-meta">
+                            <span>📅 Décembre 2024 - Février 2025</span>
+                            <span>🏫 IUT Paul Sabatier • Toulouse</span>
+                        </div>
+                        <p class="experience-description">
+                            Implémentation d'un proxy FTP complet supportant les modes actif et passif en langage C. 
+                            Cet outil permet une communication sécurisée entre clients et serveurs FTP avec contrôle granulaire des accès.
+                        </p>
+
+                        <div class="experience-achievements">
+                            <strong>Réalisations techniques :</strong>
+                            <ul>
+                                <li>Sockets TCP : bind, listen, accept, recv/send pour gestion connexions</li>
+                                <li>Protocoles réseau : parsing protocole FTP, commandes (USER, PASS, PASV, PORT, RETR, STOR)</li>
+                                <li>Modes actif/passif : gestion différenciée channels contrôle et données</li>
+                                <li>Filtrage de commandes et logging pour audit</li>
+                                <li>Support de nombreuses connexions simultanées</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
+                            <strong style="display: block; margin-bottom: 0.8rem; color: var(--primary);">Compétences développées :</strong>
+                            <a href="#comp-segmentation" class="competence-link">Réseaux & Protocoles</a>
+                            <a href="#comp-c" class="competence-link">Programmation C</a>
+                        </div>
+                    </div>
+
+                    <!-- Transfert Fichiers -->
+                    <div id="exp-transfert" class="experience-item">
+                        <h3>Service de Transfert Fichiers & Commandes</h3>
+                        <div class="experience-meta">
+                            <span>📅 Décembre 2024</span>
+                            <span>🏫 IUT Paul Sabatier • Toulouse</span>
+                        </div>
+                        <p class="experience-description">
+                            Remise en état et amélioration d'un service existant de transfert de fichiers et 
+                            d'exécution de commandes distantes en C. Mise en conformité avec les exigences de sécurité.
+                        </p>
+
+                        <div class="experience-achievements">
+                            <strong>Réalisations :</strong>
+                            <ul>
+                                <li>Refactoring code existant pour sécurité</li>
+                                <li>Validation inputs et prévention injections</li>
+                                <li>Gestion robuste des erreurs</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
+                            <strong style="display: block; margin-bottom: 0.8rem; color: var(--primary);">Compétences développées :</strong>
+                            <a href="#comp-c" class="competence-link">Programmation C</a>
+                        </div>
+                    </div>
+
+                    <!-- Analyse Flux Réseau -->
+                    <div id="exp-analyse" class="experience-item">
+                        <h3>Analyse des Flux Réseaux & Segmentation</h3>
+                        <div class="experience-meta">
+                            <span>📅 Novembre - Décembre 2024</span>
+                            <span>🏫 IUT Paul Sabatier • Toulouse</span>
+                        </div>
+                        <p class="experience-description">
+                            Projet d'analyse approfondie des flux de données dans le contexte de séparation des réseaux. 
+                            Étude du trafic réseau, identification des patterns de sécurité et mise en place de règles de filtrage.
+                        </p>
+
+                        <div class="experience-achievements">
+                            <strong>Réalisations :</strong>
+                            <ul>
+                                <li>Analyse du trafic réseau existant</li>
+                                <li>Identification patterns de sécurité</li>
+                                <li>Design de règles de filtrage</li>
+                                <li>Documentation d'architecture</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
+                            <strong style="display: block; margin-bottom: 0.8rem; color: var(--primary);">Compétences développées :</strong>
+                            <a href="#comp-segmentation" class="competence-link">Réseaux & Filtrage</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================ -->
+                <!-- SECTION 3 : COMPÉTENCES -->
+                <!-- ============================================ -->
+                <section id="competences-section" class="portfolio-section">
+                    <div class="section-header">
+                        <h2>🎯 Compétences Professionnelles</h2>
+                    </div>
+
+                    <!-- ===== CYBERSÉCURITÉ ===== -->
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="background: linear-gradient(135deg, #d32f2f, #ff6f00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; border-bottom: 3px solid #d32f2f; padding-bottom: 0.8rem; margin-bottom: 1.5rem; font-size: 1.3rem; font-weight: 700;">🔐 Cybersécurité & SOC</h3>
+                        
+                        <div class="competences-grid">
+                            <div id="comp-edr" class="competence-detail">
+                                <h3>🔍 EDR & Threat Detection</h3>
+                                <p class="competence-description">Trend Vision One • Triage alertes • MITRE ATT&CK</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Déploiement et gestion EDR (200+ endpoints)</li>
+                                        <li>Tuning signatures et réduction faux positifs</li>
+                                        <li>Analyse comportementale et chaîne de kill</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="comp-soc" class="competence-detail">
+                                <h3>🛡️ SOC & Purple Teaming</h3>
+                                <p class="competence-description">Playbooks SOAR • Incident Response • Purple Teaming</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Création de playbooks automatisés</li>
+                                        <li>Simulations d'attaques et testing</li>
+                                        <li>Évaluation capacité de détection</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="comp-compliance" class="competence-detail">
+                                <h3>📋 Compliance & Standards</h3>
+                                <p class="competence-description">ISO 27001 • CIS Benchmarks • NIST Framework</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Gestion sécurité de l'information</li>
+                                        <li>Audits de sécurité et remédiation</li>
+                                        <li>Documentation et traçabilité</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== RÉSEAUX ===== -->
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="background: linear-gradient(135deg, #1565c0, #00bcd4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; border-bottom: 3px solid #1565c0; padding-bottom: 0.8rem; margin-bottom: 1.5rem; font-size: 1.3rem; font-weight: 700;">🌐 Réseaux & Infrastructure</h3>
+                        
+                        <div class="competences-grid">
+                            <div id="comp-segmentation" class="competence-detail">
+                                <h3>🔗 Architectures Réseau</h3>
+                                <p class="competence-description">OSI • TCP/IP • Routage OSPF/BGP • Cisco</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Modèle OSI et TCP/IP</li>
+                                        <li>Routage statique et dynamique</li>
+                                        <li>Configuration Cisco Packet Tracer</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="comp-nac" class="competence-detail">
+                                <h3>🔐 Segmentation & NAC</h3>
+                                <p class="competence-description">VLANs L2/L3 • RADIUS 802.1X • Authentification</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>VLANs L2/L3 et routage inter-VLAN</li>
+                                        <li>NAC et authentification réseau</li>
+                                        <li>Design de segmentation</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="comp-automation" class="competence-detail">
+                                <h3>☁️ Virtualisation</h3>
+                                <p class="competence-description">Docker • VMware • Proxmox • VirtualBox</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Docker et conteneurs</li>
+                                        <li>Hyperviseurs (VMware, Proxmox)</li>
+                                        <li>Gestion environnements virtualisés</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== SYSTÈMES ===== -->
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="background: linear-gradient(135deg, #388e3c, #43a047); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; border-bottom: 3px solid #388e3c; padding-bottom: 0.8rem; margin-bottom: 1.5rem; font-size: 1.3rem; font-weight: 700;">🐧 Systèmes & Administration</h3>
+                        
+                        <div class="competences-grid">
+                            <div id="comp-linux" class="competence-detail">
+                                <h3>🔓 Linux & Sécurité Système</h3>
+                                <p class="competence-description">Debian • Ubuntu • Kali • Hardening • SELinux</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Administration Linux (Debian, Ubuntu)</li>
+                                        <li>Hardening et durcissement système</li>
+                                        <li>Gestion permissions et accès (SELinux, LDAP)</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="comp-crypto" class="competence-detail">
+                                <h3>🔐 Cryptographie</h3>
+                                <p class="competence-description">Chiffrement symétrique • Asymétrique • Hachage</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Chiffrement symétrique et asymétrique</li>
+                                        <li>Algorithmes de hachage</li>
+                                        <li>Codes correcteurs et détecteurs d'erreurs</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="comp-admin" class="competence-detail">
+                                <h3>⚙️ Gestion Infrastructure</h3>
+                                <p class="competence-description">Monitoring • Logs • Automatisation • Git</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Supervision et monitoring</li>
+                                        <li>Gestion logs centralisés</li>
+                                        <li>Automatisation (Ansible, Python, Bash)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== DÉVELOPPEMENT ===== -->
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="background: linear-gradient(135deg, #5e35b1, #7c4dff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; border-bottom: 3px solid #5e35b1; padding-bottom: 0.8rem; margin-bottom: 1.5rem; font-size: 1.3rem; font-weight: 700;">💻 Développement & Programmation</h3>
+                        
+                        <div class="competences-grid">
+                            <div id="comp-c" class="competence-detail">
+                                <h3>⚡ C Bas Niveau</h3>
+                                <p class="competence-description">Sockets • Mémoire • Sécurité système • I/O</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Programmation C sécurisée</li>
+                                        <li>Sockets réseau (TCP/UDP)</li>
+                                        <li>Gestion mémoire et buffer overflow</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="comp-python" class="competence-detail">
+                                <h3>🐍 Python & Scripts</h3>
+                                <p class="competence-description">Automation • Parsing • API • Bash/Shell</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Automatisation système</li>
+                                        <li>Parsing et traitement données</li>
+                                        <li>Bash/Shell scripting</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="comp-web" class="competence-detail">
+                                <h3>🌐 Web & Frameworks</h3>
+                                <p class="competence-description">PHP • Laravel • JavaScript • Vue.js • SQL</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Laravel (PHP) et frameworks web</li>
+                                        <li>Vue.js et JavaScript frontend</li>
+                                        <li>SQL et bases de données</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== SOFT SKILLS ===== -->
+                    <div>
+                        <h3 style="color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 0.8rem; margin-bottom: 1.5rem;">🌟 Soft Skills</h3>
+                        
+                        <div class="competences-grid">
+                            <div id="comp-communication" class="competence-detail">
+                                <h3>💬 Communication</h3>
+                                <p class="competence-description">Documentation technique • Rapports • Présentation</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Documentation technique claire</li>
+                                        <li>Rapports professionnels et findings</li>
+                                        <li>Présentation aux stakeholders</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="competence-detail">
+                                <h3>🤝 Travail d'Équipe</h3>
+                                <p class="competence-description">Collaboration • Partage de connaissances</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li>Collaboration multidisciplinaire</li>
+                                        <li>Mentorat et knowledge sharing</li>
+                                        <li>Respect des délais</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="competence-detail">
+                                <h3>🌍 Langues</h3>
+                                <p class="competence-description">Français • Anglais C1 • Espagnol B1</p>
+                                <div class="competence-details">
+                                    <ul>
+                                        <li><strong>Français :</strong> natif</li>
+                                        <li><strong>Anglais :</strong> C1 (avancé)</li>
+                                        <li><strong>Espagnol :</strong> B1 (intermédiaire)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================ -->
+                <!-- SECTION 4 : SOFT SKILLS & LOISIRS -->
+                <!-- ============================================ -->
+                <section id="softskills-section" class="portfolio-section">
+                    <div class="section-header">
+                        <h2>🌟 Soft Skills & Loisirs</h2>
+                    </div>
+
+                    <div class="softskill-grid">
+                        <div class="softskill-card">
+                            <h4>� Qualités d'Écoute</h4>
+                            <p>
+                                Capacité à écouter les besoins et préoccupations d'équipes techniques et managériales. 
+                                Compréhension des enjeux business et alignement des solutions techniques.
+                            </p>
+                        </div>
+
+                        <div class="softskill-card">
+                            <h4>📝 Capacités Rédactionnelles</h4>
+                            <p>
+                                Documentation technique claire et précise. Rapports de sécurité détaillés et professionnels. 
+                                Rigueur dans la rédaction et la structuration de l'information.
+                            </p>
+                        </div>
+
+                        <div class="softskill-card">
+                            <h4>🤝 Sens du Travail en Équipe</h4>
+                            <p>
+                                Collaboration efficace en équipes multidisciplinaires. Partage de connaissances et mentorat de pairs. 
+                                Respect des délais et des objectifs collectifs.
+                            </p>
+                        </div>
+
+                        <div class="softskill-card">
+                            <h4>🏔️ Randonnée</h4>
+                            <p>
+                                Passion pour la montagne et les randonnées en nature. 
+                                Appréciation de l'effort physique et du dépassement personnel. 
+                                Loisir qui favorise bien-être et équilibre vie-travail.
+                            </p>
+                        </div>
+
+                        <div class="softskill-card">
+                            <h4>📖 Littérature</h4>
+                            <p>
+                                Lecteur régulier de littérature variée. 
+                                Intérêt pour histoire, géopolitique et sciences sociales. 
+                                Culture générale et ouverture d'esprit.
+                            </p>
+                        </div>
+
+                        <div class="softskill-card">
+                            <h4>🌍 Langues</h4>
+                            <p>
+                                <strong>Français</strong> : natif<br>
+                                <strong>Anglais</strong> : C1 (avancé)<br>
+                                <strong>Espagnol</strong> : B1 (intermédiaire)<br>
+                                Intérêt pour apprentissage continu des langues.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3 style="color: white; margin-bottom: 0.5rem;">Amine Mahmoudy</h3>
+                <p>Ingénieur Sécurité Systèmes & Réseaux</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="cv.html">CV</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/amine-mahmoudy" title="LinkedIn" target="_blank">in</a>
+                <a href="https://github.com/amine-mahmoudy" title="GitHub" target="_blank">⚙</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Amine Mahmoudy. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== FORMATION ACCORDÉON =====
+            document.querySelectorAll('#formation-section .formation-item').forEach(item => {
+                const header = item.querySelector('.formation-header');
+                const details = item.querySelector('.formation-details');
+                const icon = item.querySelector('.expand-icon');
+
+                if (header) {
+                    header.addEventListener('click', function() {
+                        details.classList.toggle('open');
+                        if (icon) icon.classList.toggle('open');
+                    });
+                }
+            });
+
+            // ===== EXPÉRIENCES ACCORDÉON =====
+            document.querySelectorAll('#experiences-section .experience-item').forEach(item => {
+                const header = item.querySelector('.experience-header');
+                const achievements = item.querySelector('.experience-achievements');
+                const competenceLinks = item.querySelector('.competence-links-section');
+                const icon = item.querySelector('.expand-icon');
+
+                if (header) {
+                    header.addEventListener('click', function() {
+                        if (achievements) achievements.classList.toggle('open');
+                        if (competenceLinks) competenceLinks.classList.toggle('open');
+                        if (icon) icon.classList.toggle('open');
+                    });
+                }
+            });
+
+            // ===== COMPÉTENCES ACCORDÉON =====
+            document.querySelectorAll('#competences-section .competence-detail').forEach(item => {
+                const header = item.querySelector('h3');
+                const details = item.querySelector('.competence-details');
+                const icon = item.querySelector('.expand-icon');
+
+                if (header) {
+                    header.addEventListener('click', function() {
+                        details.classList.toggle('open');
+                        if (icon) icon.classList.toggle('open');
+                    });
+                }
+            });
+
+            // ===== NAVIGATION DYNAMIQUE =====
+            // Formation
+            const formations = [
+                { id: 'form-but', title: 'BUT Informatique (DACS)' },
+                { id: 'form-bac', title: 'Baccalauréat Général' }
+            ];
+            formations.forEach(form => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="#${form.id}">${form.title}</a>`;
+                document.getElementById('nav-formation').appendChild(li);
+            });
+
+            // Expériences
+            const experiences = [
+                { id: 'exp-fonroche', title: 'Apprentissage Fonroche' },
+                { id: 'exp-vitesco', title: 'Stage Vitesco' },
+                { id: 'exp-proxy', title: 'Proxy FTP' },
+                { id: 'exp-transfert', title: 'Service Transfert Fichiers' },
+                { id: 'exp-analyse', title: 'Analyse Flux Réseaux' }
+            ];
+            experiences.forEach(exp => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="#${exp.id}">${exp.title}</a>`;
+                document.getElementById('nav-experiences').appendChild(li);
+            });
+
+            // Compétences
+            const competences = [
+                { id: 'comp-segmentation', title: 'Réseaux' },
+                { id: 'comp-nac', title: 'Segmentation L2/L3' },
+                { id: 'comp-linux', title: 'Cryptographie & Admin Sys' },
+                { id: 'comp-automation', title: 'Virtualisation' },
+                { id: 'comp-c', title: 'Langages' },
+                { id: 'comp-edr', title: 'EDR & Threat Detection' },
+                { id: 'comp-soc', title: 'SOC & Purple Teaming' },
+                { id: 'comp-compliance', title: 'Compliance' },
+                { id: 'comp-communication', title: 'Communication' }
+            ];
+            competences.forEach(comp => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="#${comp.id}">${comp.title}</a>`;
+                document.getElementById('nav-competences').appendChild(li);
+            });
+
+            // Divers
+            const divers = [
+                { id: 'softskills-section', title: 'Soft Skills & Loisirs' }
+            ];
+            divers.forEach(div => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="#${div.id}">${div.title}</a>`;
+                document.getElementById('nav-divers').appendChild(li);
+            });
+
+            // Gestion des clics sur liens de compétences
+            document.querySelectorAll('.competence-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href');
+                    const element = document.querySelector(target);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        element.classList.add('highlight');
+                        setTimeout(() => element.classList.remove('highlight'), 2000);
+                    }
+                });
+            });
+
+            // Mettre à jour les liens actifs du sommaire
+            const updateActiveNav = () => {
+                document.querySelectorAll('.portfolio-nav a').forEach(a => a.classList.remove('active'));
+                const sections = ['formation-section', 'experiences-section', 'competences-section', 'softskills-section'];
+                sections.forEach(id => {
+                    const section = document.getElementById(id);
+                    if (section) {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top <= 200 && rect.bottom >= 200) {
+                            const links = document.querySelectorAll(`.portfolio-nav a[href="#${id}"]`);
+                            links.forEach(link => link.classList.add('active'));
+                        }
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', updateActiveNav);
+
+            // ===== ANIMATIONS AU SCROLL =====
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const animateOnScroll = (entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Délai progressif pour les éléments
+                        setTimeout(() => {
+                            entry.target.classList.add('animate-in');
+                        }, index * 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const scrollObserver = new IntersectionObserver(animateOnScroll, observerOptions);
+
+            // Appliquer les animations à différents éléments
+            document.querySelectorAll('.formation-item, .experience-item, .competence-detail, .softskill-card').forEach(el => {
+                el.classList.add('scroll-animate');
+                scrollObserver.observe(el);
+            });
+
+            // Animer les section headers
+            document.querySelectorAll('.section-header').forEach(el => {
+                el.classList.add('scroll-animate-header');
+                scrollObserver.observe(el);
+            });
+        });
+
+        // Animation highlight
+        const style = document.createElement('style');
+        style.textContent = `
+            /* Animations au scroll */
+            .scroll-animate {
+                opacity: 0;
+                transform: translateY(30px);
+                animation: fadeInUp 0.6s ease-out forwards;
+            }
+
+            .scroll-animate-header {
+                opacity: 0;
+                transform: translateY(-20px);
+                animation: slideInDown 0.6s ease-out forwards;
+            }
+
+            .animate-in {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+
+            @keyframes slideInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Animations au hover */
+            .formation-item,
+            .experience-item,
+            .competence-detail,
+            .softskill-card {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .formation-item::before,
+            .experience-item::before,
+            .competence-detail::before,
+            .softskill-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                transition: left 0.5s ease;
+                pointer-events: none;
+            }
+
+            .formation-item:hover::before,
+            .experience-item:hover::before,
+            .competence-detail:hover::before,
+            .softskill-card:hover::before {
+                left: 100%;
+            }
+
+            /* Animation des icônes expand */
+            .expand-icon {
+                display: inline-block;
+                transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .expand-icon.open {
+                transform: rotate(180deg) scale(1.2);
+            }
+
+            /* Compétences - animation staggered */
+            .competences-grid > div {
+                animation: fadeInUp 0.6s ease-out forwards;
+            }
+
+            .competences-grid > div:nth-child(1) { animation-delay: 0s; }
+            .competences-grid > div:nth-child(2) { animation-delay: 0.1s; }
+            .competences-grid > div:nth-child(3) { animation-delay: 0.2s; }
+            .competences-grid > div:nth-child(4) { animation-delay: 0.3s; }
+            .competences-grid > div:nth-child(5) { animation-delay: 0.4s; }
+            .competences-grid > div:nth-child(6) { animation-delay: 0.5s; }
+
+            /* Animation pulse sur les liens navbar actifs */
+            .navbar-menu a.active {
+                animation: underlineSlide 0.6s ease-out;
+            }
+
+            @keyframes underlineSlide {
+                from {
+                    border-bottom-width: 0;
+                }
+                to {
+                    border-bottom-width: 2px;
+                }
+            }
+
+            .competence-detail.highlight,
+            .experience-item.highlight {
+                background: linear-gradient(90deg, transparent, #fff3cd, transparent) !important;
+                animation: highlightPulse 1s ease-out;
+            }
+
+            @keyframes highlightPulse {
+                0% { background: #fff3cd; }
+                100% { background: white; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

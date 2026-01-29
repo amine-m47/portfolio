@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - Amine Mahmoudy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="navbar">
+            <div class="navbar-logo"><a href="index.html" style="color: var(--primary); text-decoration: none;">AM</a></div>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="competences.html">Compétences</a></li>
+                <li><a href="projets.html" class="active">Projets</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="navbar-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="section" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 4rem 5% !important;">
+        <div class="container">
+            <h1 style="color: white; margin-bottom: 1rem;">Mes Projets & Expériences</h1>
+            <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.1rem;">
+                Découvrez comment j'applique mes compétences dans des contextes professionnels et académiques
+            </p>
+        </div>
+    </section>
+
+    <!-- Experience Professionnelle -->
+    <section class="section container">
+        <h2>Expérience Professionnelle</h2>
+
+        <!-- Apprentissage Fonroche -->
+        <div class="projets-grid">
+            <div class="projet-card">
+                <div class="projet-image">🏢</div>
+                <div class="projet-content">
+                    <p class="projet-date">Octobre 2025 - En cours</p>
+                    <h3>Apprenti Ingénieur Sécurité Systèmes & Réseaux</h3>
+                    <p style="color: var(--primary); font-weight: 500;">Fonroche Lighting • Agen (47)</p>
+                    <p class="projet-description">
+                        En tant qu'apprenti, je participe à la sécurisation et à l'administration des infrastructures 
+                        informatiques de l'entreprise. Je contribue à la mise en place de solutions de sécurité, 
+                        à l'administration système Linux, et à la gestion des accès utilisateurs.
+                    </p>
+                    <div class="projet-competences">
+                        <span class="tag security">Sécurité</span>
+                        <span class="tag network">Réseaux</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Administration</span>
+                    </div>
+                    <a href="competences.html#admin-system" class="btn" style="font-size: 0.9rem;">Voir les compétences</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage Vitesco -->
+        <div class="projets-grid" style="margin-top: 2rem;">
+            <div class="projet-card">
+                <div class="projet-image">⚙️</div>
+                <div class="projet-content">
+                    <p class="projet-date">Avril - Juin 2025 (3 mois)</p>
+                    <h3>Développeur Systèmes & Réseaux</h3>
+                    <p style="color: var(--primary); font-weight: 500;">Vitesco Technologies • Toulouse (31)</p>
+                    <p class="projet-description">
+                        Stage de 3 mois en équipe de 3 personnes. J'ai travaillé sur la gestion des ports, 
+                        la sécurité bas niveau en langage C, ainsi que la gestion des sessions utilisateurs 
+                        et des accès. Expérience dans un environnement professionnel et une entreprise 
+                        de taille internationale.
+                    </p>
+                    <div class="projet-competences">
+                        <span class="tag">C</span>
+                        <span class="tag security">Sécurité</span>
+                        <span class="tag">Ports</span>
+                        <span class="tag">Travail d'équipe</span>
+                    </div>
+                    <a href="competences.html" class="btn" style="font-size: 0.9rem;">Voir les compétences</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets Académiques -->
+    <section class="section container section-alt">
+        <h2>Projets Académiques</h2>
+
+        <div class="projets-grid">
+            <!-- Proxy FTP -->
+            <div class="projet-card">
+                <div class="projet-image">📡</div>
+                <div class="projet-content">
+                    <p class="projet-date">Décembre 2024 - Février 2025</p>
+                    <h3>Proxy FTP Actif/Passif</h3>
+                    <p style="color: var(--primary); font-weight: 500;">IUT Paul Sabatier • Toulouse</p>
+                    <p class="projet-description">
+                        Implémentation d'un proxy FTP complet supportant les modes actif et passif en langage C. 
+                        Cet outil permet une communication sécurisée entre clients et serveurs FTP, 
+                        avec gestion des connexions multiples.
+                    </p>
+                    <div class="projet-competences">
+                        <span class="tag">C</span>
+                        <span class="tag network">Protocoles Réseau</span>
+                        <span class="tag security">Sécurité</span>
+                    </div>
+                    <a href="competences.html#reseaux" class="btn" style="font-size: 0.9rem;">Voir les compétences</a>
+                </div>
+            </div>
+
+            <!-- Transfert Fichiers -->
+            <div class="projet-card">
+                <div class="projet-image">📦</div>
+                <div class="projet-content">
+                    <p class="projet-date">Décembre 2024</p>
+                    <h3>Service de Transfert Fichiers & Commandes</h3>
+                    <p style="color: var(--primary); font-weight: 500;">IUT Paul Sabatier • Toulouse</p>
+                    <p class="projet-description">
+                        Remise en état et amélioration d'un service existant de transfert de fichiers et 
+                        d'exécution de commandes distantes en C. Mise en conformité avec les exigences 
+                        de sécurité imposées par l'équipe cybersécurité.
+                    </p>
+                    <div class="projet-competences">
+                        <span class="tag">C</span>
+                        <span class="tag security">Cybersécurité</span>
+                        <span class="tag">Refactoring</span>
+                    </div>
+                    <a href="competences.html#securite" class="btn" style="font-size: 0.9rem;">Voir les compétences</a>
+                </div>
+            </div>
+
+            <!-- Analyse Flux Réseau -->
+            <div class="projet-card">
+                <div class="projet-image">📊</div>
+                <div class="projet-content">
+                    <p class="projet-date">Novembre 2024 - Décembre 2024</p>
+                    <h3>Analyse des Flux Réseaux</h3>
+                    <p style="color: var(--primary); font-weight: 500;">IUT Paul Sabatier • Toulouse</p>
+                    <p class="projet-description">
+                        Projet d'analyse approfondie des flux de données dans le contexte de séparation des réseaux. 
+                        Étude du trafic réseau, identification des patterns de sécurité et mise en place 
+                        de règles de filtrage.
+                    </p>
+                    <div class="projet-competences">
+                        <span class="tag network">Réseaux</span>
+                        <span class="tag security">Firewall</span>
+                        <span class="tag">Analyse</span>
+                    </div>
+                    <a href="competences.html#reseaux" class="btn" style="font-size: 0.9rem;">Voir les compétences</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sécurisation Infrastructures -->
+    <section class="section container">
+        <h2>Projets de Sécurisation Infrastructures</h2>
+        <div class="projets-grid">
+            <div class="projet-card">
+                <div class="projet-image">🔒</div>
+                <div class="projet-content">
+                    <p class="projet-date">Décembre 2024 (2 mois)</p>
+                    <h3>Sécurisation des Systèmes & Réseaux</h3>
+                    <p style="color: var(--primary); font-weight: 500;">IUT Paul Sabatier</p>
+                    <p class="projet-description">
+                        Projet complet de sécurisation des infrastructures réseaux et systèmes de l'établissement. 
+                        Mise en place d'outils de supervision et monitoring, surveillance des équipements critiques, 
+                        analyse et résolution d'incidents en environnement production.
+                    </p>
+                    <div class="projet-competences">
+                        <span class="tag security">Sécurité Infra</span>
+                        <span class="tag">Monitoring</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Documentation</span>
+                    </div>
+                    <a href="competences.html#securite-systemes" class="btn" style="font-size: 0.9rem;">Voir les compétences</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Réseau -->
+    <section class="section container section-alt">
+        <h2>Architecture & Configuration Réseau</h2>
+        <div class="projets-grid">
+            <div class="projet-card">
+                <div class="projet-image">🌐</div>
+                <div class="projet-content">
+                    <p class="projet-date">Ongoing</p>
+                    <h3>Architecture Réseaux Cisco</h3>
+                    <p style="color: var(--primary); font-weight: 500;">IUT Paul Sabatier</p>
+                    <p class="projet-description">
+                        Conception et configuration d'architectures réseaux complexes utilisant Cisco Packet Tracer. 
+                        Implémentation du routage statique et dynamique (OSPF, BGP), configuration de VLAN, 
+                        et optimisation des performances réseau.
+                    </p>
+                    <div class="projet-competences">
+                        <span class="tag network">Cisco</span>
+                        <span class="tag">Routage</span>
+                        <span class="tag">VLAN</span>
+                    </div>
+                    <a href="competences.html#reseaux" class="btn" style="font-size: 0.9rem;">Voir les compétences</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Centres d'Intérêt -->
+    <section class="section container">
+        <h2>Centres d'Intérêt & Passions</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="font-size: 2rem; margin-bottom: 0.5rem;">🥾</p>
+                <h3 style="margin-bottom: 0.5rem;">Randonnée</h3>
+                <p>Passionné par la nature et l'exploration, je pratique régulièrement la randonnée pour me ressourcer.</p>
+            </div>
+            <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="font-size: 2rem; margin-bottom: 0.5rem;">📚</p>
+                <h3 style="margin-bottom: 0.5rem;">Littérature</h3>
+                <p>Lecteur assidu, j'apprécie les ouvrages de science-fiction et les essais technologiques.</p>
+            </div>
+            <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="font-size: 2rem; margin-bottom: 0.5rem;">🌍</p>
+                <h3 style="margin-bottom: 0.5rem;">Langues</h3>
+                <p>Passionné par l'apprentissage des langues, je suis constamment en train d'améliorer mon anglais et mon espagnol.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3 style="color: white; margin-bottom: 0.5rem;">Amine Mahmoudy</h3>
+                <p>Ingénieur Sécurité Systèmes & Réseaux</p>
+            </div>
+            <div class="footer-links">
+                <a href="competences.html">Compétences</a>
+                <a href="projets.html">Projets</a>
+                <a href="cv.html">CV</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/amine-mahmoudy" title="LinkedIn" target="_blank">in</a>
+                <a href="https://github.com/amine-mahmoudy" title="GitHub" target="_blank">⚙</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Amine Mahmoudy. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
